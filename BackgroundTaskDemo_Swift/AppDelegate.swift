@@ -27,17 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         ZJLog.printLog("程序挂起");
         
-//        //方式1
-//        //启动后台任务
-//        if(UIDevice.currentDevice().multitaskingSupported){
-//            ZJLog.printLog("启动后台任务");
-//            self.backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({
-//                ZJLog.printLog("后台任务到期");
-//                UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask);
-//                self.backgroundTask = UIBackgroundTaskInvalid;
-//            })
-// 
-//        }
+        //方式1
+        //启动后台任务
+        if(UIDevice.currentDevice().multitaskingSupported){
+            ZJLog.printLog("启动后台任务");
+            self.backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({
+                ZJLog.printLog("后台任务到期");
+                UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask);
+                self.backgroundTask = UIBackgroundTaskInvalid;
+            })
+ 
+        }
     }
     
     func backgroundTimeAction(){
@@ -86,9 +86,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         ZJLog.printLog("程序激活");
         
-//        //终止后台任务
-//        UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask);
-//        self.backgroundTask = UIBackgroundTaskInvalid;
+        //终止后台任务
+        UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask);
+        self.backgroundTask = UIBackgroundTaskInvalid;
         ZJLog.printLog("终止后台任务");
     }
 
